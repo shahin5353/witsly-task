@@ -1,4 +1,7 @@
-const numArr = [1, [2, 3,[4,5]]];
-const flat = arr => arr.reduce((a,b) => a.concat(Array.isArray(b) ? flat(b) : b),[]);
-const arrLength = flat(numArr).length;
-console.log(arrLength);
+//Length of Non-Nested Array
+const numArr = [1, [2, 3]];
+const getLength = arr=>{
+    let flat = a => a.reduce((b,c) => b.concat(Array.isArray(c) ? flat(c) : c),[]);
+    return flat(arr).length;
+};
+console.log(getLength(numArr));
